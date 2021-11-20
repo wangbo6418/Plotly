@@ -1,0 +1,20 @@
+# px.scatter
+fig1 = px.scatter (x=df1["date"], y=df1["width_mean"],
+                  labels = {
+                      "x":'Date',
+                      "y": "Width (m)"
+                  }
+                  )
+fig1.update_traces(mode = "lines+markers")
+fig1.update_yaxes(tickangle=270,ticklabelposition="inside",tickfont=dict(size=14),title_standoff = 8)
+fig1.update_xaxes(ticklabelposition="inside",tickfont=dict(size=14),title_standoff = 5)
+fig1.update_layout (
+    font_family = "Arial",
+    font_size = 12,
+    font_color = "black",
+    width = 400, height = 300,
+    margin=dict(l=0, r=10, t=10, b=0),
+    #template = "simple_white",
+                    )
+fig1.show()
+fig1.write_image("images/Width analysis1.png",width=400, height=300, scale=2)
