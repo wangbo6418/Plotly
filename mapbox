@@ -1,0 +1,21 @@
+import plotly.express as px
+# Mapbox account : wangbo6418 1122
+mapbox_access_token = "pk.eyJ1Ijoid2FuZ2JvNjQxOCIsImEiOiJja3Y4dzNhb2EwNW52MndtbHNiaHUxbzN4In0.4fWD6xHpaKQEKZjuToUemA"
+# use scatter_mapbox
+fig1 = px.scatter_mapbox(df, lat="latitude", lon = 'longitude',
+                         color = "newlocation" ,
+                        #hover_name="Flow_path",
+                        hover_data=["newlocation"],
+                        color_discrete_sequence=["fuchsia"], zoom=8, height=300)
+fig1.update_layout(
+        mapbox_style="mapbox://styles/mapbox/satellite-v9",
+        mapbox=dict(
+        accesstoken=mapbox_access_token,
+        center = dict(lat = 58.4900, lon = -111.5035),
+        bearing=0,
+        pitch=0,
+        zoom=9,
+                ),
+      )
+fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig1.show()
