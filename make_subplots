@@ -1,0 +1,37 @@
+fig1 = make_subplots(rows=1, cols=2)
+
+fig1.add_trace(
+    go.Scatter(x=prob['07DD001_new'],y=prob['probability'],mode='markers',marker_color='#1F77B4'),
+    row = 1, col = 1
+)
+fig1.add_trace(
+    go.Scatter(y=prob['07DD001_new'],x=prob['return-years'],mode='markers',marker_color='#1F77B4'),
+    row = 1, col = 2
+)
+#update axes
+fig1.update_xaxes(title_text="Discharge (m³ s⁻¹)", dtick = 1000, row=1, col=1)
+fig1.update_xaxes(title_text="Return period (years)", dtick = 5,  row=1, col=2)
+fig1.update_yaxes(title_text="Probability", row=1, col=1)
+fig1.update_yaxes(title_text="Discharge (m³ s⁻¹)", row=1, col=2)
+
+fig1.update_layout(
+#     xaxis_title='Return period (Years)',
+#     yaxis_title='Discahrge (m³ s⁻¹)',
+    width=800,
+    height=400,
+    font_family = "Arial",
+    font_color = 'black',
+    font_size = 12,
+    template="simple_white",
+    showlegend=False，
+    margin=dict(l=20, r=20, t=20, b=20),
+#     title='Flow_path, best_WSE_cgvd213 scatter plot',
+#     xaxis
+#     legend_title="Legend Title",
+#     legend = dict(
+#     yanchor='top',
+#     y=0.85,
+#     xanchor='right',
+#     x=0.935
+#     )
+)
